@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="author" content="Khoa">
+  <title>Progress - FitFollow</title>
+  <link href="tyyli.css" rel="stylesheet" type="text/css">
+  <style>
+    .mobile-nav,
+    .mobile-close {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="menu">
+    <div class="nav_container container flex">
+      <!-- Mobile nav -->
+      <button class="mobile-nav" aria-label="Avaa valikko">
+        <ion-icon name="apps-outline"></ion-icon>
+      </button>
+      <button class="mobile-close" aria-label="Sulje valikko">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <!-- Mobile nav -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="kuvat/fflogo.png" alt="logo">
+        </a>
+      </div>
+      <ul class="nav_items">
+        <li class="nav_item"><a href="index.html">Home</a></li>
+        <li class="nav_item"><a href="analytics.html">Analytics</a></li>
+        <li class="nav_item"><a href="progress.html">Progress</a></li>
+        <li class="nav_item"><a href="guide.html">Guide</a></li>
+        <li class="nav_item"><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn" onclick="window.location.href='register.html'">Register</button>
+      <button class="btn" onclick="window.location.href='login.html'">Login</button>
+    </div>
+  </nav>
+  <!-- Nav Bar -->
+
+  <!-- Progress -->
+  <main>
+    <section class="section" id="progress">
+      <div class="container flex">
+        <div class="text">
+          <h2 class="secondary">Edistyminen</h2>
+          <p>Pidä kirjaa edistymisestäsi ja aseta uusia tavoitteita.</p>
+        </div>
+      </div>
+    </section>
+    <div class="container flex">
+      <div class="form-container">
+        <h3>Lisää uusi kehonpaino</h3>
+        <input type="date" id="weightDate" />
+        <input type="number" id="weightValue" placeholder="Paino (kg)" />
+        <button class="btn" onclick="addWeight()">Lisää Paino</button>
+        <div class="data-container">
+          <h3>Kehonpaino</h3>
+          <ul id="weightList"></ul>
+        </div>
+      </div>
+      <div class="form-container">
+        <h3>Lisää uusi treenitulos</h3>
+        <input type="text" id="exerciseName" placeholder="Liikkeen nimi" />
+        <input type="number" id="exerciseWeight" placeholder="Paino (kg)" />
+        <button class="btn" onclick="addWorkout()">Lisää Treenitulos</button>
+        <div class="data-container">
+          <h3>Treenitulokset</h3>
+          <ul id="workoutList"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="weightChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="workoutChart"></canvas>
+    </div>
+  </main>
+  <!-- Progress -->
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container flex">
+      <div class="text">
+        <h2 class="secondary">Ota Yhteyttä</h2>
+        <p>Ota yhteyttä sivun tekijöihin ja anna palautetta.</p>
+        info@fitfollow.com
+        <p>+358 40 123 4567</p>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+
+  <!-- ION icons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    document.querySelector('.mobile-nav').addEventListener('click', function() {
+      document.querySelector('.menu').classList.add('active');
+    });
+
+    document.querySelector('.mobile-close').addEventListener('click', function() {
+      document.querySelector('.menu').classList.remove('active');
+    });
+
+    function addWeight() {
+      const date = document.getElementById('weightDate').value;
+      const weight = document.getElementById('weightValue').value;
+      if (date && weight) {
+        const weightList = document.getElementById('weightList');
+        const listItem = document.createElement('li');
+        listItem.textContent = `${date}: ${weight} kg`;
+        weightList.appendChild(listItem);
+      }
+    }
+
+    function addWorkout() {
+      const name = document.getElementById('exerciseName').value;
+      const weight = document.getElementById('exerciseWeight').value;
+      if (name && weight) {
+        const workoutList = document.getElementById('workoutList');
+        const listItem = document.createElement('li');
+        listItem.textContent = `${name}: ${weight} kg`;
+        workoutList.appendChild(listItem);
+      }
+    }
+  </script>
+</body>
+
+</html>

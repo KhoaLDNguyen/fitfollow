@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="author" content="Khoa">
+  <title>Guide - FitFollow</title>
+  <link href="tyyli.css" rel="stylesheet" type="text/css">
+  <style>
+    .exercise-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .exercise-container img {
+      width: 50%; /* Adjust the size as needed */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .exercise-description {
+      margin-top: 10px;
+      font-size: 18px; /* Increase the font size */
+      color: #333;
+    }
+    .exercise-description u {
+      font-size: 24px; /* Increase the font size for exercise names */
+      font-weight: bold; /* Bold the exercise names */
+    }
+    .mobile-nav,
+    .mobile-close {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="menu">
+    <div class="nav_container container flex">
+      <!-- Mobile nav -->
+      <button class="mobile-nav" aria-label="Avaa valikko">
+        <ion-icon name="apps-outline"></ion-icon>
+      </button>
+      <button class="mobile-close" aria-label="Sulje valikko">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <!-- Mobile nav -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="kuvat/fflogo.png" alt="logo">
+        </a>
+      </div>
+      <ul class="nav_items">
+        <li class="nav_item"><a href="index.html">Home</a></li>
+        <li class="nav_item"><a href="analytics.html">Analytics</a></li>
+        <li class="nav_item"><a href="progress.html">Progress</a></li>
+        <li class="nav_item"><a href="guide.html">Guide</a></li>
+        <li class="nav_item"><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn" onclick="window.location.href='register.html'">Register</button>
+      <button class="btn" onclick="window.location.href='login.html'">Login</button>
+    </div>
+  </nav>
+  <!-- Nav Bar -->
+
+  <!-- Guide -->
+  <section class="section" id="guide">
+    <div class="container flex">
+      <div class="text">
+        <h2 class="secondary">Ohjeet</h2>
+        <p>Löydä asiantuntevia ohjeita ja vinkkejä eri lajeihin.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Guide -->
+
+  <main>
+    <div class="exercise-container">
+      <img src="kuvat/legpress.webp" alt="Leg Press">
+      <div class="exercise-description"><u>Leg Press</u> 
+        <p>Asetu laitteeseen ja aseta jalat hartianleveydelle jalkalevylle.</p>
+        <p>Pidä selkä kiinni penkissä ja tartu kahvoihin tukevasti.</p>
+        <p>Laske paino hallitusti alas, kunnes polvet ovat noin 90 asteen kulmassa.</p>
+        <p>Työnnä jalat suoriksi mutta vältä lukitsemasta polvia.</p>
+        <p>Toista ja pidä kontrolli koko liikkeen ajan.</p></div>
+    </div>
+    <div class="exercise-container">
+      <img src="kuvat/legraise.webp" alt="Leg Raise">
+      <div class="exercise-description"><u>Leg Raise</u> 
+        <p>Asetu roikkumaan leuanvetotankoon tai makaa tasaisella alustalla.</p>
+        <p>Pidä jalat suorina ja nosta ne ylös niin, että ne ovat noin 90 asteen kulmassa.</p>
+        <p>Laske jalat hallitusti alas, mutta älä anna niiden koskettaa lattiaa.</p>
+        <p>Vältä alaselän notkistamista ja pidä keskivartalo tiukkana koko liikkeen ajan.</p> </div>
+    </div>
+    <div class="exercise-container">
+      <img src="kuvat/peckdeck.webp" alt="Peck Deck">
+      <div class="exercise-description"><u>Peck Deck</u> 
+        <p>Istu laitteeseen ja tartu leveällä otteella tankoon.</p>
+        <p>Vedä tanko alas rinnan yläosaan, samalla puristaen lapaluita yhteen.</p>
+        <p>Pidä pieni tauko ala-asennossa ja palauta hallitusti ylös.</p>
+        <p>Vältä kehon heilauttamista ja keskity käyttämään selkälihaksia.</p></div>
+    </div>
+    <div class="exercise-container">
+      <img src="kuvat/widegrip.webp" alt="Wide Grip">
+      <div class="exercise-description"><u>Wide Grip</u>
+        <p>Istu laitteeseen ja tartu leveällä otteella tankoon.</p>
+        <p>Vedä tanko alas rinnan yläosaan, samalla puristaen lapaluita yhteen.</p>
+        <p>Pidä pieni tauko ala-asennossa ja palauta hallitusti ylös.</p>
+        <p>Vältä kehon heilauttamista ja keskity käyttämään selkälihaksia.</p></div>
+    </div>
+  </main>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container flex">
+      <div class="text">
+        <h2 class="secondary">Ota Yhteyttä</h2>
+        <p>Ota yhteyttä sivun tekijöihin ja anna palautetta.</p>
+        info@fitfollow.com
+        <p>+358 40 123 4567</p>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+
+  <!-- ION icons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelector('.mobile-nav').addEventListener('click', function() {
+      document.querySelector('.menu').classList.add('active');
+    });
+
+    document.querySelector('.mobile-close').addEventListener('click', function() {
+      document.querySelector('.menu').classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>

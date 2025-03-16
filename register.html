@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="author" content="Khoa">
+    <title>Rekisteröidy - FitFollow</title>
+  <link href="tyyli.css" rel="stylesheet" type="text/css">
+  <style>
+    .form-content {
+      color: #333;
+      /* Tummempi teksti */
+    }
+
+    .btn {
+      margin-right: 8px;
+    }
+
+    .form-content .btn:last-child {
+      margin-right: 0;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Register/Login Form -->
+  <div id="register-login-form" class="form-container">
+    <div class="form-content">
+      <div class="logo">
+        <a href="index.html">
+          <img src="kuvat/fflogo.png" alt="logo">
+        </a>
+      </div>
+      <h2 class="secondary">Luo Käyttäjätili ja Kirjaudu Sisään</h2>
+      <form id="register-form">
+        <label for="username">Käyttäjänimi:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email"><br>Sähköposti:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password"><br>Salasana:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="register-btn">Luo Käyttäjätili</button>
+      </form>
+      <button class="btn" onclick="window.location.href='login.html'">Kirjaudu Sisään</button>
+    </div>
+  </div>
+  <!-- Register/Login Form -->
+
+  <!-- ION icons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const data = {
+        username: formData.get('username'),
+        email: formData.get('email'),
+        password: formData.get('password')
+      };
+
+      fetch('https://your-backend-api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert('Käyttäjätili luotu onnistuneesti!');
+          } else {
+            alert('Virhe käyttäjätilin luonnissa: ' + data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Virhe käyttäjätilin luonnissa.');
+        });
+    });
+  </script>
+</body>
+
+</html>

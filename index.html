@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="author" content="Khoa">
+  <title>FitFollow</title>
+  <link href="tyyli.css" rel="stylesheet" type="text/css">
+  <style>
+    .mobile-nav,
+    .mobile-close {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <header>
+    <nav class="menu" aria-label="Päävalikko">
+      <div class="nav_container container flex">
+        <!-- Mobile nav -->
+        <button class="mobile-nav" aria-label="Avaa valikko">
+          <ion-icon name="apps-outline"></ion-icon>
+        </button>
+        <button class="mobile-close" aria-label="Sulje valikko">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <!-- Mobile nav -->
+        <div class="logo">
+          <a href="index.html">
+            <img src="kuvat/fflogo.png" alt="FitFollow logo">
+          </a>
+        </div>
+        <ul class="nav_items">
+          <li class="nav_item"><a href="index.html">Home</a></li>
+          <li class="nav_item"><a href="analytics.html">Analytics</a></li>
+          <li class="nav_item"><a href="progress.html">Progress</a></li>
+          <li class="nav_item"><a href="guide.html">Guide</a></li>
+          <li class="nav_item"><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn" onclick="window.location.href='register.html'" aria-label="Rekisteröidy">Register</button>
+        <button class="btn" onclick="window.location.href='login.html'" aria-label="Kirjaudu">Login</button>
+      </div>
+    </nav>
+  </header>
+  <!-- Nav Bar -->
+
+  <!-- Treeni -->
+  <main class="treeni" id="home">
+    <div class="container flex">
+      <div class="text">
+        <h1 class="mb">
+          <span>FitFollow</span> <br>
+          Seuraa, Kehity ja Saavuta!
+        </h1>
+        <p class="tervetuloa">
+          FitFollow paikka, jossa jokainen treeni vie sinut lähemmäs tavoitteitasi!
+          Seuraa suorituksiasi, löydä asiantuntevia ohjeita eri lajeihin ja kehity päivä päivältä, olitpa sitten
+          pyöräilijä, juoksija, kuntosaliharrastaja tai crossfitin ystävä.
+          <br>Luo oma käyttäjätilisi ja aloita matkasi kohti parempaa kuntoa jo tänään. FitFollow on tukenasi seuraa
+          edistymistäsi, analysoi tuloksiasi ja pysy motivoituneena!
+        </p><br>
+        <button class="register-btn" onclick="window.location.href='register.html'" aria-label="Aloita Heti">Aloita Heti</button>
+      </div>
+      <div class="visual">
+        <img src="kuvat/treeni.png" alt="Treeni kuva">
+      </div>
+    </div>
+  </main>
+  <!-- Treeni -->
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container flex">
+      <div class="text">
+        <h2 class="secondary">Ota Yhteyttä</h2>
+        <p>Ota yhteyttä sivun tekijöihin ja anna palautetta.</p>
+        <p>info@fitfollow.com</p>
+        <p>+358 40 123 4567</p>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+
+  <!-- ION icons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelector('.mobile-nav').addEventListener('click', function() {
+      document.querySelector('.menu').classList.add('active');
+    });
+
+    document.querySelector('.mobile-close').addEventListener('click', function() {
+      document.querySelector('.menu').classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>

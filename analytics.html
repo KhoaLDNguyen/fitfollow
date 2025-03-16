@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="author" content="Khoa">
+   <title>Analytics - FitFollow</title>
+  <link href="tyyli.css" rel="stylesheet" type="text/css">
+  <style>
+    .chart {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+    }
+    canvas {
+      width: 100% !important;
+      height: 400px !important;
+    }
+    .mobile-nav,
+    .mobile-close {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="menu">
+    <div class="nav_container container flex">
+      <!-- Mobile nav -->
+      <button class="mobile-nav" aria-label="Avaa valikko">
+        <ion-icon name="apps-outline"></ion-icon>
+      </button>
+      <button class="mobile-close" aria-label="Sulje valikko">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <!-- Mobile nav -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="kuvat/fflogo.png" alt="logo">
+        </a>
+      </div>
+      <ul class="nav_items">
+        <li class="nav_item"><a href="index.html">Home</a></li>
+        <li class="nav_item"><a href="analytics.html">Analytics</a></li>
+        <li class="nav_item"><a href="progress.html">Progress</a></li>
+        <li class="nav_item"><a href="guide.html">Guide</a></li>
+        <li class="nav_item"><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn" onclick="window.location.href='register.html'">Register</button>
+      <button class="btn" onclick="window.location.href='login.html'">Login</button>
+    </div>
+  </nav>
+  <!-- Nav Bar -->
+
+  <!-- Analytics -->
+  <main>
+    <section class="section" id="analytics">
+      <div class="container flex">
+        <div class="text">
+          <h2 class="secondary">Tulosten Analytiikka</h2>
+          <p>Seuraa ja analysoi treenituloksiasi graafien ja tilastojen avulla.</p>
+        </div>
+      </div>
+      <div class="container flex">
+        <div class="chart">
+          <canvas id="resultsChart"></canvas>
+        </div>
+        <div class="stats">
+          <h3>Tilastot</h3>
+          <p>Harjoituskerrat: <span id="workoutCount">0</span></p>
+          <p>Keskimääräinen aika: <span id="averageTime">0 min</span></p>
+          <p>Keskimääräinen kalorien kulutus: <span id="averageCalories">0 kcal</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Analytics -->
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container flex">
+      <div class="text">
+        <h2 class="secondary">Ota Yhteyttä</h2>
+        <p>Ota yhteyttä sivun tekijöihin ja anna palautetta.</p>
+        info@fitfollow.com
+        <p>+358 40 123 4567</p>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+
+  <!-- ION icons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctx = document.getElementById('resultsChart').getContext('2d');
+    const resultsChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Maanantai', 'Tiistai', 'Keskiviikko', 'Torstai', 'Perjantai', 'Lauantai', 'Sunnuntai'],
+        datasets: [{
+          label: 'Treenitulokset',
+          data: [12, 19, 3, 5, 2, 16, 7],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Päivitä tilastot (esimerkkiarvot)
+    document.getElementById('workoutCount').textContent = '5';
+    document.getElementById('averageTime').textContent = '45 min';
+    document.getElementById('averageCalories').textContent = '300 kcal';
+
+    document.querySelector('.mobile-nav').addEventListener('click', function() {
+      document.querySelector('.menu').classList.add('active');
+    });
+
+    document.querySelector('.mobile-close').addEventListener('click', function() {
+      document.querySelector('.menu').classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>
